@@ -57,25 +57,25 @@ class CachedDict(object):
 
     def iteritems(self):
         self._populate()
-        return iter(self._local_cache.items())
+        return self._local_cache.iteritems()
 
     def itervalues(self):
         self._populate()
-        return iter(self._local_cache.values())
+        return self._local_cache.itervalues()
 
     def iterkeys(self):
         self._populate()
-        return iter(self._local_cache.keys())
+        return self._local_cache.iterkeys()
 
     def keys(self):
-        return list(self.keys())
+        return list(self.iterkeys())
 
     def values(self):
-        return list(self.values())
+        return list(self.itervalues())
 
     def items(self):
         self._populate()
-        return list(self._local_cache.items())
+        return self._local_cache.items()
 
     def get(self, key, default=None):
         self._populate()

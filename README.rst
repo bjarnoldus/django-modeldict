@@ -25,3 +25,10 @@ Quick example usage. More docs to come (maybe?)::
 	
 	settings['foo']
 	>>> 'hello'
+
+------------
+Note
+------------
+
+Patched for Python 3
+

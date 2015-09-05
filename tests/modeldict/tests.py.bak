@@ -1,4 +1,4 @@
-
+from __future__ import absolute_import
 
 import mock
 import time
@@ -140,7 +140,7 @@ class ModelDictTest(TransactionTestCase):
     def test_save_behavior(self):
         mydict = ModelDict(ModelDictModel, key='key', value='value', auto_create=True)
         mydict['hello'] = 'foo'
-        for n in range(10):
+        for n in xrange(10):
             mydict[str(n)] = 'foo'
         self.assertEquals(len(mydict), 11)
         self.assertEquals(ModelDictModel.objects.count(), 11)
@@ -189,7 +189,7 @@ class CacheIntegrationTest(TestCase):
         self.mydict['hello'] = 'foo'
         self.assertEquals(self.cache.get.call_count, 0)
         self.assertEquals(self.cache.set.call_count, 2)
-        self.cache.set.assert_any_call(self.mydict.remote_cache_key, {'hello': 'foo'})
+        self.cache.set.assert_any_call(self.mydict.remote_cache_key, {u'hello': u'foo'})
         self.cache.set.assert_any_call(self.mydict.remote_cache_last_updated_key, self.mydict._last_checked_for_remote_changes)
 
     def test_switch_change(self):
@@ -198,7 +198,7 @@ class CacheIntegrationTest(TestCase):
         self.mydict['hello'] = 'bar'
         self.assertEquals(self.cache.get.call_count, 0)
         self.assertEquals(self.cache.set.call_count, 2)
-        self.cache.set.assert_any_call(self.mydict.remote_cache_key, {'hello': 'bar'})
+        self.cache.set.assert_any_call(self.mydict.remote_cache_key, {u'hello': u'bar'})
         self.cache.set.assert_any_call(self.mydict.remote_cache_last_updated_key, self.mydict._last_checked_for_remote_changes)
 
     def test_switch_delete(self):

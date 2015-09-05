@@ -16,10 +16,10 @@ tests_require = [
 
 setup(
     name='django-modeldict',
-    version='1.4.1',
+    version='1.5.0',
     author='DISQUS',
-    author_email='opensource@disqus.com',
-    url='http://github.com/disqus/django-modeldict/',
+    author_email='opensource@repleo.nl',
+    url='http://github.com/bjarnoldus/django-modeldict/',
     description='Stores a model as a dictionary',
     packages=find_packages(),
     zip_safe=False,
